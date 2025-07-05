@@ -1,0 +1,225 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}Contact - Vedansh Saini | Get In Touch{% endblock %}
+
+{% block content %}
+<!-- Contact Hero Section -->
+<section class="contact-hero py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold mb-3">Get In Touch</h1>
+                <p class="lead text-muted">Let's discuss opportunities and collaborations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card shadow-lg">
+                    <div class="card-body p-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="mb-4">Contact Information</h3>
+                                <div class="contact-info">
+                                    <div class="contact-item d-flex align-items-center mb-3">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-user fa-lg text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Name</h6>
+                                            <p class="mb-0 text-muted">Vedansh Saini</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item d-flex align-items-center mb-3">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-briefcase fa-lg text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Position</h6>
+                                            <p class="mb-0 text-muted">Python | AI/ML Developer</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item d-flex align-items-center mb-3">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-map-marker-alt fa-lg text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Location</h6>
+                                            <p class="mb-0 text-muted">Mumbai, India</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item d-flex align-items-center mb-3">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-envelope fa-lg text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Email</h6>
+                                            <p class="mb-0 text-muted">vedanshsaini786@gmail.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item d-flex align-items-center mb-3">
+                                        <div class="contact-icon me-3">
+                                            <i class="fas fa-phone fa-lg text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-0">Phone</h6>
+                                            <p class="mb-0 text-muted">+91 9826666148</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Social Links -->
+                                <div class="social-section mt-4">
+                                    <h5 class="mb-3">Connect With Me</h5>
+                                    <div class="social-links">
+                                        <a href="https://www.linkedin.com/in/vedansh-saini-442802180/" target="_blank" class="btn btn-outline-primary me-2 mb-2">
+                                            <i class="fab fa-linkedin me-2"></i>LinkedIn
+                                        </a>
+                                        <a href="https://github.com/sainisahab786" target="_blank" class="btn btn-outline-dark me-2 mb-2">
+                                            <i class="fab fa-github me-2"></i>GitHub
+                                        </a>
+                                        <a href="https://x.com/VedanshSaini" target="_blank" class="btn btn-outline-info me-2 mb-2">
+                                            <i class="fab fa-twitter me-2"></i>Twitter
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <h3 class="mb-4">Send a Message</h3>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                            {{ message }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                                <form id="contactForm" method="post">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <label for="name" class="form-label">Full Name</label>
+                                        <input type="text" class="form-control" id="name" name="name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email Address</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="subject" class="form-label">Subject</label>
+                                        <select class="form-control" id="subject" name="subject" required>
+                                            <option value="">Select a subject</option>
+                                            <option value="job-opportunity">Job Opportunity</option>
+                                            <option value="collaboration">Project Collaboration</option>
+                                            <option value="consultation">Technical Consultation</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="message" class="form-label">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                                    </div>
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Work With Me -->
+<section class="why-me py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-5">Why Work With Me?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-rocket fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">Innovation Focused</h5>
+                        <p class="card-text">Always exploring new technologies and innovative approaches to solve complex problems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-handshake fa-3x text-success"></i>
+                        </div>
+                        <h5 class="card-title">Collaborative Approach</h5>
+                        <p class="card-text">Strong team player with excellent communication skills and cross-functional collaboration experience.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="feature-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="feature-icon mb-3">
+                            <i class="fas fa-chart-line fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Results Driven</h5>
+                        <p class="card-text">Committed to delivering high-quality solutions that meet deadlines and exceed expectations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Availability -->
+<section class="availability py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="mb-3">Current Availability</h2>
+                <p class="lead mb-4">Open to new opportunities and exciting projects</p>
+                <div class="availability-info">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="availability-item">
+                                <i class="fas fa-clock fa-2x mb-2"></i>
+                                <h5>Full-time Positions</h5>
+                                <p class="mb-0">Available for permanent roles</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="availability-item">
+                                <i class="fas fa-project-diagram fa-2x mb-2"></i>
+                                <h5>Contract Projects</h5>
+                                <p class="mb-0">Open to freelance work</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="availability-item">
+                                <i class="fas fa-users fa-2x mb-2"></i>
+                                <h5>Consulting</h5>
+                                <p class="mb-0">Technical advisory services</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

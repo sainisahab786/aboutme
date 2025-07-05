@@ -1,0 +1,187 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block title %}Experience - Vedansh Saini | Python Developer{% endblock %}
+
+{% block content %}
+<!-- Experience Hero Section -->
+<section class="experience-hero py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="display-4 fw-bold mb-3">Professional Experience</h1>
+                <p class="lead text-muted">My journey in technology and software development</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section -->
+<section class="timeline-section py-5">
+    <div class="container">
+        <div class="timeline">
+            {% for experience in experiences %}
+            <div class="timeline-item {% cycle 'left' 'right' %}">
+                <div class="timeline-content">
+                    <div class="card shadow-lg">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-1">{{ experience.company }}</h4>
+                            <p class="mb-0"><i class="fas fa-map-marker-alt me-2"></i>{{ experience.location }}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="position-info mb-3">
+                                <h5 class="text-primary">{{ experience.position }}</h5>
+                                <p class="text-muted mb-0">
+                                    <i class="fas fa-calendar-alt me-2"></i>{{ experience.duration }}
+                                </p>
+                            </div>
+                            
+                            {% for project in experience.projects %}
+                            <div class="project-section mb-4">
+                                <h6 class="fw-bold text-dark mb-3">
+                                    <i class="fas fa-project-diagram me-2"></i>{{ project.name }}
+                                </h6>
+                                <ul class="list-unstyled">
+                                    {% for desc in project.description %}
+                                    <li class="mb-2">
+                                        <i class="fas fa-chevron-right me-2 text-primary"></i>{{ desc }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-marker">
+                    <div class="timeline-marker-inner">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Key Achievements -->
+<section class="achievements py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-5">Key Achievements</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="achievement-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-robot fa-3x text-primary"></i>
+                        </div>
+                        <h5 class="card-title">AI System Integration</h5>
+                        <p class="card-text">Successfully integrated multiple AI services (IBM Watson, 3CX, Twilio) into a unified communication platform.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="achievement-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-spider fa-3x text-success"></i>
+                        </div>
+                        <h5 class="card-title">Advanced Web Scraping</h5>
+                        <p class="card-text">Developed sophisticated web scraping tools with ML-powered error correction for legal data extraction.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="achievement-card card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <div class="achievement-icon mb-3">
+                            <i class="fas fa-server fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="card-title">Infrastructure Management</h5>
+                        <p class="card-text">Managed critical production servers and implemented monitoring solutions for enterprise environments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Evolution -->
+<section class="skills-evolution py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center mb-5">Technical Skills Evolution</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 mb-4">
+                <div class="skill-category">
+                    <h4 class="mb-3"><i class="fas fa-code me-2 text-primary"></i>Programming & Frameworks</h4>
+                    <div class="skill-list">
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>Django</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>FastAPI</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>REST APIs</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="skill-category">
+                    <h4 class="mb-3"><i class="fas fa-brain me-2 text-success"></i>AI/ML & Data</h4>
+                    <div class="skill-list">
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>Machine Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>NLP/NLU/NLG</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>Pandas/NumPy</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item d-flex justify-content-between align-items-center mb-2">
+                            <span>Web Scraping</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
